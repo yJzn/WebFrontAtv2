@@ -1,12 +1,12 @@
 <div class ="produto-detalhe-container" *ngIf="produtoId">
     <h2>Detalhes do Produto</h2>
     <div *ngIf="produtoId; else noProduct">
-        <p><strong>ID:</strong> {{ produtoId }}</p>
-        <p><strong>Nome:</strong> {{ produtos[produtoId - 1]?.nome }}</p>
-        <p><strong>Descrição:</strong> {{ produtos[produtoId - 1]?.descricao }}</p>
-        <p><strong>Preço:</strong> {{ produtos[produtoId - 1]?.preco | currency:'BRL' }}</p>
+        <p><strong>ID:</strong> {{ produtoSelecionado?.id }}</p>
+        <p><strong>Nome:</strong> {{ produtoSelecionado?.nome }}</p>
+        <p><strong>Descrição:</strong> {{ produtoSelecionado?.descricao }}</p>
+        <p><strong>Preço:</strong> {{ produtoSelecionado?.preco | currency:'BRL' }}</p>
         <p><strong>Em Estoque:</strong>
-            <span *ngIf="produtos[produtoId - 1]?.emEstoque; else outOfStock" class="text-success">Sim</span>
+            <span *ngIf="produtoSelecionado?.emEstoque; else outOfStock" class="text-success">Sim</span>
             <ng-template #outOfStock><span class="text-danger">Não</span></ng-template>
         </p>
     </div>
