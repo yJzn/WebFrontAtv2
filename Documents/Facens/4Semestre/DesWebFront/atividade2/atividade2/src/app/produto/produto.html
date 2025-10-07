@@ -1,1 +1,35 @@
-<p>produto works!</p>
+<div *ngIf="produtos.length === 0" class="alert alert-info" role="alert">
+    Nenhum produto disponível no momento.
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Em Estoque</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of produtos">
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.preco | currency:'BRL' }}</td>
+            <td>
+                <span *ngIf="produto.emEstoque; else outOfStock" class="text-success">Sim</span>
+                <ng-template #outOfStock><span class="text-danger">Não</span></ng-template>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" [disabled]="!produto.emEstoque"
+                    [ngStyle]="{ 'background-color': !produto.emEstoque ? 'gray' : '' }"
+                    [routerLink]="['/produto-detalhe', produto.id]">
+                    Comprar
+                </button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -7,6 +7,7 @@ import { Home } from './home/home';
 import { Produto } from './produto/produto';
 import { ProdutoDetalhe } from './produto-detalhe/produto-detalhe';
 import { Sobre } from './sobre/sobre';
+import { MenuSuperior } from './menu-superior/menu-superior';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Sobre } from './sobre/sobre';
     Home,
     Produto,
     ProdutoDetalhe,
-    Sobre
+    Sobre,
+    MenuSuperior
   ],
   imports: [
     BrowserModule,

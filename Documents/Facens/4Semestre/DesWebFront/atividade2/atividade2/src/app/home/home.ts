@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.css'
 })
 export class Home {
+  showBanner = true;
 
+  toggleBanner() {
+    this.showBanner = !this.showBanner;
+  }
 }

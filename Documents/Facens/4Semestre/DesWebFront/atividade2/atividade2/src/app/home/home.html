@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="home-container">
+
+    <div class="banner-wrapper" *ngIf="showBanner">
+        <img src="assets/BannerPromocional.png" alt="Banner Promocional da Loja" class="banner-img">
+    </div>
+
+    <div class="banner-toggle">
+        <button (click)="toggleBanner()">
+            {{ showBanner ? 'Ocultar Banner' : 'Mostrar Banner' }}
+        </button>
+    </div>
+
+    <main>
+        <h1>Boas vindas à tecnologia!</h1>
+        <p>Confira os melhores periféricos do mercado!</p>
+    </main>
+</div>
